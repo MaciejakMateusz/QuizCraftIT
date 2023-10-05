@@ -1,4 +1,4 @@
-package pl.coderslab.zadanie_rekrutacyjne_cl.service;
+package pl.coderslab.zadanie_rekrutacyjne_cl.service.interfaces;
 
 import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Answer;
 

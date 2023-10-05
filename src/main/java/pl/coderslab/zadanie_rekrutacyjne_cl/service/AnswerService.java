@@ -2,6 +2,7 @@ package pl.coderslab.zadanie_rekrutacyjne_cl.service;
 
 import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Answer;
 import pl.coderslab.zadanie_rekrutacyjne_cl.repository.AnswerRepository;
+import pl.coderslab.zadanie_rekrutacyjne_cl.service.interfaces.AnswerServiceInterface;
 
 import java.util.List;
 import java.util.Optional;
