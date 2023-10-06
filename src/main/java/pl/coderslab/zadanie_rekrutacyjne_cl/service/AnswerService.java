@@ -1,5 +1,6 @@
 package pl.coderslab.zadanie_rekrutacyjne_cl.service;
 
+import org.springframework.stereotype.Service;
 import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Answer;
 import pl.coderslab.zadanie_rekrutacyjne_cl.repository.AnswerRepository;
 import pl.coderslab.zadanie_rekrutacyjne_cl.service.interfaces.AnswerServiceInterface;
@@ -7,6 +8,7 @@ import pl.coderslab.zadanie_rekrutacyjne_cl.service.interfaces.AnswerServiceInte
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class AnswerService implements AnswerServiceInterface {
 
     private final AnswerRepository answerRepository;
