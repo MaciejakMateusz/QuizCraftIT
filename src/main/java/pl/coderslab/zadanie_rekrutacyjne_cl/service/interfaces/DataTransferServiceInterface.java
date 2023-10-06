@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface DataTransferServiceInterface {
     List<QuestionDTO> fetchQuestions();
+
     void transferToDatabase();
 }
