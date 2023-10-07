@@ -4,6 +4,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import pl.coderslab.zadanie_rekrutacyjne_cl.service.interfaces.DataTransferService;
 
+import java.util.stream.IntStream;
+
 @Component
 public class DataInitializer implements CommandLineRunner {
 
@@ -15,6 +17,7 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        dataTransferService.transferToDatabase();
+        IntStream.rangeClosed(1, 10).forEach(i -> dataTransferService.transferToDatabase());
     }
+
 }
