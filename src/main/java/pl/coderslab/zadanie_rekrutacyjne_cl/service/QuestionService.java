@@ -5,7 +5,6 @@ import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Question;
 import pl.coderslab.zadanie_rekrutacyjne_cl.repository.QuestionRepository;
 import pl.coderslab.zadanie_rekrutacyjne_cl.service.interfaces.QuestionServiceInterface;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,12 +22,7 @@ public class QuestionService implements QuestionServiceInterface {
     }
 
     @Override
-    public Optional<Question> findById(Long id) {
-        return questionRepository.findById(id);
-    }
-
-    @Override
-    public List<Question> findAll() {
-        return questionRepository.findAll();
+    public Optional<Question> findRandom() {
+        return questionRepository.findRandomQuestion();
     }
 }
