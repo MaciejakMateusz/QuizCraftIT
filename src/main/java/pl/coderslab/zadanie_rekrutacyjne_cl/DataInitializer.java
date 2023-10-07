@@ -2,7 +2,7 @@ package pl.coderslab.zadanie_rekrutacyjne_cl;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import pl.coderslab.zadanie_rekrutacyjne_cl.service.interfaces.DataTransferService;
+import pl.coderslab.zadanie_rekrutacyjne_cl.service.DataTransferService;
 
 import java.util.stream.IntStream;
 

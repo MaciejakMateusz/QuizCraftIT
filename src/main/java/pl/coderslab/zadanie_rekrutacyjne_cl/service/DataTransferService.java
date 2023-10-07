@@ -1,4 +1,4 @@
-package pl.coderslab.zadanie_rekrutacyjne_cl.service.interfaces;
+package pl.coderslab.zadanie_rekrutacyjne_cl.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,8 +9,7 @@ import pl.coderslab.zadanie_rekrutacyjne_cl.dto.QuestionDTO;
 import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Answer;
 import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Question;
 import pl.coderslab.zadanie_rekrutacyjne_cl.exception.CustomException;
-import pl.coderslab.zadanie_rekrutacyjne_cl.service.AnswerService;
-import pl.coderslab.zadanie_rekrutacyjne_cl.service.QuestionService;
+import pl.coderslab.zadanie_rekrutacyjne_cl.service.interfaces.DataTransferServiceInterface;
 
 import java.util.Arrays;
 import java.util.List;

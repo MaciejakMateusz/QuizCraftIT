@@ -3,31 +3,35 @@ package pl.coderslab.zadanie_rekrutacyjne_cl.controller.rest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import pl.coderslab.zadanie_rekrutacyjne_cl.dto.Response;
 import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Question;
 import pl.coderslab.zadanie_rekrutacyjne_cl.exception.QuestionNotFoundException;
-import pl.coderslab.zadanie_rekrutacyjne_cl.service.AnswerService;
 import pl.coderslab.zadanie_rekrutacyjne_cl.service.QuestionService;
+import pl.coderslab.zadanie_rekrutacyjne_cl.utility.AnswerValidator;
 
 @RestController
 @RequestMapping("/api")
 public class MainApiController {
 
     private final QuestionService questionService;
-    private final AnswerService answerService;
+    private final AnswerValidator answerValidator;
 
-    public MainApiController(QuestionService questionService, AnswerService answerService) {
+    public MainApiController(QuestionService questionService, AnswerValidator answerValidator) {
         this.questionService = questionService;
-        this.answerService = answerService;
+        this.answerValidator = answerValidator;
     }
 
     @GetMapping("/questions")
     public Question randomQuestion() {
         return questionService.findRandom()
                 .orElseThrow(() -> new QuestionNotFoundException("No question found, try again."));
+    }
+
+    @PostMapping("/questions")
+    public Response correct(@RequestBody long questionId,
+                            @RequestBody long[] answers) {
+        return new Response(answerValidator.isCorrect(questionId, answers));
     }
 
     @RequestMapping(method = RequestMethod.OPTIONS)
