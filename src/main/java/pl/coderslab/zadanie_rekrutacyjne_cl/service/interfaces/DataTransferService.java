@@ -9,7 +9,7 @@ import pl.coderslab.zadanie_rekrutacyjne_cl.dto.QuestionDTO;
 import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Answer;
 import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Question;
 import pl.coderslab.zadanie_rekrutacyjne_cl.exception.ApiCommunicationException;
-import pl.coderslab.zadanie_rekrutacyjne_cl.repository.AnswerRepository;
+import pl.coderslab.zadanie_rekrutacyjne_cl.service.AnswerService;
 import pl.coderslab.zadanie_rekrutacyjne_cl.service.QuestionService;
 
 import java.util.Arrays;
@@ -28,11 +28,11 @@ public class DataTransferService implements DataTransferServiceInterface {
     private String apiKey;
 
     private final QuestionService questionService;
-    private final AnswerRepository answerRepository;
+    private final AnswerService answerService;
 
-    public DataTransferService(QuestionService questionService, AnswerRepository answerRepository) {
+    public DataTransferService(QuestionService questionService, AnswerService answerService) {
         this.questionService = questionService;
-        this.answerRepository = answerRepository;
+        this.answerService = answerService;
     }
 
     @Override
@@ -65,7 +65,7 @@ public class DataTransferService implements DataTransferServiceInterface {
             questionService.save(question);
 
             Map<String, String> answers = questionDTO.getAnswers();
-            Map<String, Boolean> correctAnswers = questionDTO.getCorrectAnswers();
+            Map<String, Boolean> correctAnswers = questionDTO.getCorrect_answers();
 
             for (Map.Entry<String, String> answerEntry : answers.entrySet()) {
                 String answerKey = answerEntry.getKey();
@@ -87,7 +87,7 @@ public class DataTransferService implements DataTransferServiceInterface {
                     answer.setCorrect(true);
                 }
 
-                answerRepository.save(answer);
+                answerService.save(answer);
             }
         }
     }
