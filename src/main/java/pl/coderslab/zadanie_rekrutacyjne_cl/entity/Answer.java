@@ -1,5 +1,6 @@
 package pl.coderslab.zadanie_rekrutacyjne_cl.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,14 +10,17 @@ import lombok.Setter;
 @Entity
 @Table(name = "answers")
 public class Answer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String answer;
 
+    @JsonIgnore
     private boolean correct;
 
     @ManyToOne
+    @JsonIgnore
     private Question question;
 }
