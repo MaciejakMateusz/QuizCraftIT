@@ -4,7 +4,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.zadanie_rekrutacyjne_cl.dto.QuestionAnswerRequestBody;
+import pl.coderslab.zadanie_rekrutacyjne_cl.dto.AnswerRequestBody;
 import pl.coderslab.zadanie_rekrutacyjne_cl.dto.Response;
 import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Question;
 import pl.coderslab.zadanie_rekrutacyjne_cl.exception.QuestionNotFoundException;
@@ -29,8 +29,8 @@ public class MainApiController {
                 .orElseThrow(() -> new QuestionNotFoundException("No question found, try again."));
     }
 
-    @PostMapping("/questions")
-    public Response correct(@RequestBody QuestionAnswerRequestBody requestBody) {
+    @PostMapping("/answers")
+    public Response correct(@RequestBody AnswerRequestBody requestBody) {
         return new Response(answerValidator.isCorrect(requestBody.getQuestionId(), requestBody.getAnswers()));
     }
 
