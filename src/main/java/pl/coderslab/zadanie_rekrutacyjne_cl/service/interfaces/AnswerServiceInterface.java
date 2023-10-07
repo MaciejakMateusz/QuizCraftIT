@@ -8,5 +8,7 @@ import java.util.List;
 public interface AnswerServiceInterface {
     void save(Answer answer);
 
+    List<Answer> findAllByQuestionAndCorrect(Question question, boolean correct);
+
     List<Answer> findAllByQuestion(Question question);
 }
