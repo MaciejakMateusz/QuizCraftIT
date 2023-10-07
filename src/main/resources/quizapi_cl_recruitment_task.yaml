@@ -1,0 +1,74 @@
+openapi: 3.0.0
+info:
+  title: QuizApi - CodersLab recruitment task
+  version: 1.0.0
+paths:
+  /api/questions:
+    get:
+      summary: Get one random question
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Question'
+  /api/answers:
+    post:
+      summary: Send answer and check its correctness
+      requestBody:
+        description: Input data to check answers
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnswerRequestBody'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+  /api:
+    options:
+      summary: OPTIONS Support
+      responses:
+        '200':
+          description: Success
+          headers:
+            Allow:
+              schema:
+                type: string
+components:
+  schemas:
+    Question:
+      type: object
+      properties:
+        id:
+          type: number
+        question:
+          type: string
+        answers:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+              answer:
+                type: string
+    AnswerRequestBody:
+      type: object
+      properties:
+        questionId:
+          type: number
+        answers:
+          type: array
+          items:
+            type: number
+    Response:
+      type: object
+      properties:
+        correct:
+          type: boolean
