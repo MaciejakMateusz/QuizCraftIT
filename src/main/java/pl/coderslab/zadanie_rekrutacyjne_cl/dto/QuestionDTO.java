@@ -15,9 +15,10 @@ public class QuestionDTO {
     private String description;
     private Map<String, String> answers;
     private boolean multipleCorrectAnswers;
-    private Map<String, Boolean> correctAnswers;
+    private Map<String, Boolean> correct_answers;
     private String explanation;
     private String tip;
     private String category;
     private String difficulty;
 }
+
