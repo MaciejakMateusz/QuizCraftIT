@@ -8,7 +8,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class QuestionAnswerRequestBody {
+public class AnswerRequestBody {
     @JsonProperty("answers")
     private List<Long> answers;
 
