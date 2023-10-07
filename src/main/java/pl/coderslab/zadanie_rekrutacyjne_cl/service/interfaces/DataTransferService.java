@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 import pl.coderslab.zadanie_rekrutacyjne_cl.dto.QuestionDTO;
 import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Answer;
 import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Question;
-import pl.coderslab.zadanie_rekrutacyjne_cl.exception.ApiCommunicationException;
+import pl.coderslab.zadanie_rekrutacyjne_cl.exception.CustomException;
 import pl.coderslab.zadanie_rekrutacyjne_cl.service.AnswerService;
 import pl.coderslab.zadanie_rekrutacyjne_cl.service.QuestionService;
 
@@ -50,7 +50,7 @@ public class DataTransferService implements DataTransferServiceInterface {
         if (responseEntity.getStatusCode() == HttpStatus.OK) {
             return Arrays.asList(Objects.requireNonNull(responseEntity.getBody()));
         } else {
-            throw new ApiCommunicationException("Błąd komunikacji z " + apiUrl);
+            throw new CustomException("Błąd komunikacji z " + apiUrl);
         }
     }
 
