@@ -27,6 +27,11 @@ public class QuestionService implements QuestionServiceInterface {
     }
 
     @Override
+    public Optional<Question> findById(long id) {
+        return questionRepository.findById(id);
+    }
+
+    @Override
     public Optional<Question> findRandom() {
 
         List<Answer> answers;

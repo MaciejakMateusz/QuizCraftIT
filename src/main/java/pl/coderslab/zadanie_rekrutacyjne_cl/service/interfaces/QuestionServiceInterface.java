@@ -7,6 +7,8 @@ import java.util.Optional;
 public interface QuestionServiceInterface {
     void save(Question question);
 
+    Optional<Question> findById(long id);
+
     Optional<Question> findRandom();
 
 }
