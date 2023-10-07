@@ -2,11 +2,11 @@ package pl.coderslab.zadanie_rekrutacyjne_cl.service;
 
 import org.springframework.stereotype.Service;
 import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Answer;
+import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Question;
 import pl.coderslab.zadanie_rekrutacyjne_cl.repository.AnswerRepository;
 import pl.coderslab.zadanie_rekrutacyjne_cl.service.interfaces.AnswerServiceInterface;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AnswerService implements AnswerServiceInterface {
@@ -23,12 +23,8 @@ public class AnswerService implements AnswerServiceInterface {
     }
 
     @Override
-    public Optional<Answer> findById(Long id) {
-        return answerRepository.findById(id);
+    public List<Answer> findAllByQuestion(Question question) {
+        return answerRepository.findAllByQuestion(question);
     }
 
-    @Override
-    public List<Answer> findAll() {
-        return answerRepository.findAll();
-    }
 }
