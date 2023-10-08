@@ -81,6 +81,8 @@ usuwanie danych.
 Napisz w komentarzu, w jaki sposób proponujesz pobrać losowe pytanie dane z bazy w przypadku, gdy nie możemy polegać na
 wcześniejszym założeniu.
 
+Wykorzystam losowe sortowanie danych: SELECT q FROM Question q ORDER BY RAND() LIMIT 1
+
 ### /api/questions
 
 Endpoint ma umożliwiać udzielenie odpowiedzi dla pytania. Zwrotnie mamy uzyskać informacje czy udzielona odpowiedź jest poprawna.
