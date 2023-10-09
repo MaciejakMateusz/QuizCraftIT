@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 public class Response {
     private boolean correct;
+
     public Response(boolean correct) {
         this.correct = correct;
     }

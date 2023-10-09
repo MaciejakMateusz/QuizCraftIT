@@ -1,4 +1,4 @@
-package pl.coderslab.zadanie_rekrutacyjne_cl.controller.rest;
+package pl.coderslab.zadanie_rekrutacyjne_cl.controller;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
