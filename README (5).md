@@ -101,9 +101,9 @@ Przykład:
 Przykładowy response dla poprawnej odpowiedzi:
 
 ```json
-{
+`{
   "correct": true
-}
+}`
 ```
 
 Przykładowy response dla niepoprawnej odpowiedzi:
