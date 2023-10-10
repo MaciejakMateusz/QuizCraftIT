@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  quiz-db:
+    image: quizwebapp.azurecr.io/maciejak/quiz-db:v1
+    environment:
+      MYSQL_ROOT_PASSWORD: coderslab
+      MYSQL_DATABASE: quiz_database
+      MYSQL_USER: root
+      MYSQL_PASSWORD: coderslab
+    ports:
+      - "80:3306"
+
+  quiz-webapp:
+    image: quizwebapp.azurecr.io/maciejak/quiz-webapp:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - quiz-db
