@@ -64,3 +64,16 @@ Example response:
 - MySQL
 - REST API
 - Maven
+- Docker with Azure CLI for deployment
+
+## How to use?
+
+Simply use any tool for REST API communication such as Postman or fetch data in your own application.
+Endpoints are public and as follows:
+- http://20.72.146.119:8080/api/questions
+- http://20.72.146.119:8080/api/answers
+
+It does not require authentication as this is only a demo REST API.
+Enjoy!
+
+*Author: Mateusz Maciejak*
