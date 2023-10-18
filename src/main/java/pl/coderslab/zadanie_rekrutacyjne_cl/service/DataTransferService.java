@@ -38,7 +38,6 @@ public class DataTransferService implements DataTransferServiceInterface {
     public List<QuestionDTO> fetchQuestions() {
         HttpHeaders headers = new HttpHeaders();
         headers.set("X-Api-Key", apiKey);
-
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         HttpEntity<String> entity = new HttpEntity<>(headers);

@@ -19,5 +19,4 @@ public class DataInitializer implements CommandLineRunner {
     public void run(String... args) {
         IntStream.rangeClosed(1, 10).forEach(i -> dataTransferService.transferToDatabase());
     }
-
 }
