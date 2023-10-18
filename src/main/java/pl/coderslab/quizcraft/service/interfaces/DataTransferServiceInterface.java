@@ -1,6 +1,6 @@
-package pl.coderslab.zadanie_rekrutacyjne_cl.service.interfaces;
+package pl.coderslab.quizcraft.service.interfaces;
 
-import pl.coderslab.zadanie_rekrutacyjne_cl.dto.QuestionDTO;
+import pl.coderslab.quizcraft.dto.QuestionDTO;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package pl.coderslab.zadanie_rekrutacyjne_cl;
+package pl.coderslab.quizcraft;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

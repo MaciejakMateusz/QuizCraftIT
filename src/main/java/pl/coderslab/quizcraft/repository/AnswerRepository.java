@@ -1,8 +1,8 @@
-package pl.coderslab.zadanie_rekrutacyjne_cl.repository;
+package pl.coderslab.quizcraft.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Answer;
-import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Question;
+import pl.coderslab.quizcraft.entity.Answer;
+import pl.coderslab.quizcraft.entity.Question;
 
 import java.util.List;
 

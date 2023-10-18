@@ -1,11 +1,11 @@
-package pl.coderslab.zadanie_rekrutacyjne_cl.utility;
+package pl.coderslab.quizcraft.utility;
 
 import org.springframework.stereotype.Service;
-import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Answer;
-import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Question;
-import pl.coderslab.zadanie_rekrutacyjne_cl.exception.QuestionNotFoundException;
-import pl.coderslab.zadanie_rekrutacyjne_cl.service.AnswerService;
-import pl.coderslab.zadanie_rekrutacyjne_cl.service.QuestionService;
+import pl.coderslab.quizcraft.entity.Answer;
+import pl.coderslab.quizcraft.entity.Question;
+import pl.coderslab.quizcraft.exception.QuestionNotFoundException;
+import pl.coderslab.quizcraft.service.AnswerService;
+import pl.coderslab.quizcraft.service.QuestionService;
 
 import java.util.List;
 

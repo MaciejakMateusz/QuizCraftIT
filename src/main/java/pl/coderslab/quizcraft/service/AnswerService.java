@@ -1,10 +1,10 @@
-package pl.coderslab.zadanie_rekrutacyjne_cl.service;
+package pl.coderslab.quizcraft.service;
 
 import org.springframework.stereotype.Service;
-import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Answer;
-import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Question;
-import pl.coderslab.zadanie_rekrutacyjne_cl.repository.AnswerRepository;
-import pl.coderslab.zadanie_rekrutacyjne_cl.service.interfaces.AnswerServiceInterface;
+import pl.coderslab.quizcraft.entity.Answer;
+import pl.coderslab.quizcraft.entity.Question;
+import pl.coderslab.quizcraft.repository.AnswerRepository;
+import pl.coderslab.quizcraft.service.interfaces.AnswerServiceInterface;
 
 import java.util.List;
 

@@ -1,15 +1,15 @@
-package pl.coderslab.zadanie_rekrutacyjne_cl.controller;
+package pl.coderslab.quizcraft.controller;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.zadanie_rekrutacyjne_cl.dto.AnswerRequestBody;
-import pl.coderslab.zadanie_rekrutacyjne_cl.dto.Response;
-import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Question;
-import pl.coderslab.zadanie_rekrutacyjne_cl.exception.QuestionNotFoundException;
-import pl.coderslab.zadanie_rekrutacyjne_cl.service.QuestionService;
-import pl.coderslab.zadanie_rekrutacyjne_cl.utility.AnswerValidator;
+import pl.coderslab.quizcraft.dto.AnswerRequestBody;
+import pl.coderslab.quizcraft.dto.Response;
+import pl.coderslab.quizcraft.entity.Question;
+import pl.coderslab.quizcraft.exception.QuestionNotFoundException;
+import pl.coderslab.quizcraft.service.QuestionService;
+import pl.coderslab.quizcraft.utility.AnswerValidator;
 
 @RestController
 @RequestMapping("/api")

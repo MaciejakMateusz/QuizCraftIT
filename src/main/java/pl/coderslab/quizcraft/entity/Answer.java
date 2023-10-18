@@ -1,4 +1,4 @@
-package pl.coderslab.zadanie_rekrutacyjne_cl.entity;
+package pl.coderslab.quizcraft.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

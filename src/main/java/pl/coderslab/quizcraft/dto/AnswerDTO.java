@@ -1,4 +1,4 @@
-package pl.coderslab.zadanie_rekrutacyjne_cl.dto;
+package pl.coderslab.quizcraft.dto;
 
 import lombok.Getter;
 import lombok.Setter;

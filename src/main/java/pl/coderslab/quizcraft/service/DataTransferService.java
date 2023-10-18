@@ -1,15 +1,15 @@
-package pl.coderslab.zadanie_rekrutacyjne_cl.service;
+package pl.coderslab.quizcraft.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import pl.coderslab.zadanie_rekrutacyjne_cl.dto.QuestionDTO;
-import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Answer;
-import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Question;
-import pl.coderslab.zadanie_rekrutacyjne_cl.exception.CustomException;
-import pl.coderslab.zadanie_rekrutacyjne_cl.service.interfaces.DataTransferServiceInterface;
+import pl.coderslab.quizcraft.dto.QuestionDTO;
+import pl.coderslab.quizcraft.entity.Answer;
+import pl.coderslab.quizcraft.entity.Question;
+import pl.coderslab.quizcraft.exception.CustomException;
+import pl.coderslab.quizcraft.service.interfaces.DataTransferServiceInterface;
 
 import java.util.Arrays;
 import java.util.List;

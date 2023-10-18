@@ -1,4 +1,4 @@
-package pl.coderslab.zadanie_rekrutacyjne_cl.exception;
+package pl.coderslab.quizcraft.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

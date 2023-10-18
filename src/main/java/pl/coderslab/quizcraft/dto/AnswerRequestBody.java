@@ -1,4 +1,4 @@
-package pl.coderslab.zadanie_rekrutacyjne_cl.dto;
+package pl.coderslab.quizcraft.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;

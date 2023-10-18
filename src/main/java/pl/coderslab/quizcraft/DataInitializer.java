@@ -1,8 +1,8 @@
-package pl.coderslab.zadanie_rekrutacyjne_cl;
+package pl.coderslab.quizcraft;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import pl.coderslab.zadanie_rekrutacyjne_cl.service.DataTransferService;
+import pl.coderslab.quizcraft.service.DataTransferService;
 
 import java.util.stream.IntStream;
 

@@ -1,6 +1,6 @@
-package pl.coderslab.zadanie_rekrutacyjne_cl.service.interfaces;
+package pl.coderslab.quizcraft.service.interfaces;
 
-import pl.coderslab.zadanie_rekrutacyjne_cl.entity.Question;
+import pl.coderslab.quizcraft.entity.Question;
 
 import java.util.Optional;
 
