@@ -48,7 +48,7 @@ public class DataTransferService implements DataTransferServiceInterface {
         if (responseEntity.getStatusCode() == HttpStatus.OK) {
             return Arrays.asList(Objects.requireNonNull(responseEntity.getBody()));
         } else {
-            throw new CustomException("Błąd komunikacji z " + apiUrl);
+            throw new CustomException("Communication error with " + apiUrl);
         }
     }
 
@@ -77,7 +77,7 @@ public class DataTransferService implements DataTransferServiceInterface {
                 answer.setQuestion(question);
                 answer.setAnswer(answerValue);
 
-                // Sprawdzam poprawność odpowiedzi na podstawie mapy correctAnswers
+                // Checking if answers are correct based on correctAnswers map
                 String correctKey = answerKey + "_correct";
                 Boolean isCorrect = correctAnswers.get(correctKey);
 

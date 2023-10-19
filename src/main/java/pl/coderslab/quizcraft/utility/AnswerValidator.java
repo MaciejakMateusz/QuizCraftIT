@@ -41,5 +41,4 @@ public class AnswerValidator {
 
         return true;
     }
-
 }
