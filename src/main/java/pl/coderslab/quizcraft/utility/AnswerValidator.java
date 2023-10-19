@@ -23,7 +23,7 @@ public class AnswerValidator {
     public boolean isCorrect(long questionId, List<Long> answers) {
         Question question = questionService.findById(questionId)
                 .orElseThrow(() -> new QuestionNotFoundException("No question found, try again."));
-        List<Answer> answersForQuestion = answerService.findAllByQuestionAndCorrect(question, true);
+        List<Answer> answersForQuestion = answerService.findAllByQuestionAndCorrectTrue(question);
 
         for (Answer answerForQuestion : answersForQuestion) {
             long answerId = answerForQuestion.getId();

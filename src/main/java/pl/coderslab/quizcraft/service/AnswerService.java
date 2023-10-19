@@ -23,8 +23,8 @@ public class AnswerService implements AnswerServiceInterface {
     }
 
     @Override
-    public List<Answer> findAllByQuestionAndCorrect(Question question, boolean correct) {
-        return answerRepository.findAllByQuestionAndCorrect(question, correct);
+    public List<Answer> findAllByQuestionAndCorrectTrue(Question question) {
+        return answerRepository.findAllByQuestionAndCorrectTrue(question);
     }
 
     @Override
