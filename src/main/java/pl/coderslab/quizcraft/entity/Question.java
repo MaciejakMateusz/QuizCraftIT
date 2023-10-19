@@ -18,7 +18,8 @@ public class Question {
     private long id;
 
     @JsonIgnore
-    private long api_id;
+    @Column(name = "api_id")
+    private long apiID;
 
     private String question;
 

@@ -57,7 +57,7 @@ public class DataTransferService implements DataTransferServiceInterface {
         for (QuestionDTO questionDTO : fetchQuestions()) {
 
             Question question = new Question();
-            question.setApi_id(questionDTO.getId());
+            question.setApiID(questionDTO.getId());
             question.setQuestion(questionDTO.getQuestion());
 
             questionService.save(question);
