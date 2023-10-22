@@ -1,5 +1,6 @@
 package pl.coderslab.quizcraft.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -9,15 +10,20 @@ import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
+import pl.coderslab.quizcraft.dto.AnswerRequestBody;
 import pl.coderslab.quizcraft.entity.Question;
 import pl.coderslab.quizcraft.service.interfaces.AnswerServiceInterface;
 import pl.coderslab.quizcraft.service.interfaces.QuestionServiceInterface;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -61,6 +67,19 @@ class MainApiControllerTest {
     }
 
     @Test
-    void shouldCheckIfCorrect() {
+    void shouldCheckIfCorrectSingleAnswerCase() throws Exception {
+        AnswerRequestBody answerRequestBody = new AnswerRequestBody();
+        answerRequestBody.setQuestionId(2L);
+        answerRequestBody.setAnswers(List.of(7L));
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String objectAsString = objectMapper.writeValueAsString(answerRequestBody);
+
+        MvcResult result = mockMvc.perform(post("/api/answers")
+                .content(objectAsString)
+                .contentType(MediaType.APPLICATION_JSON)).andReturn();
+        String actualAnswerJson = result.getResponse().getContentAsString();
+
+        assertTrue(actualAnswerJson.contains("\"correct\":true"));
     }
 }
