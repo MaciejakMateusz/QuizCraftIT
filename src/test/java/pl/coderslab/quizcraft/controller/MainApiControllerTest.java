@@ -16,7 +16,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import pl.coderslab.quizcraft.dto.AnswerRequestBody;
 import pl.coderslab.quizcraft.entity.Question;
-import pl.coderslab.quizcraft.service.interfaces.AnswerServiceInterface;
 import pl.coderslab.quizcraft.service.interfaces.QuestionServiceInterface;
 
 import java.util.List;
@@ -35,9 +34,6 @@ class MainApiControllerTest {
 
     @Autowired
     private QuestionServiceInterface questionService;
-
-    @Autowired
-    private AnswerServiceInterface answerService;
 
     @Autowired
     private MockMvc mockMvc;
@@ -71,6 +67,23 @@ class MainApiControllerTest {
         AnswerRequestBody answerRequestBody = new AnswerRequestBody();
         answerRequestBody.setQuestionId(2L);
         answerRequestBody.setAnswers(List.of(7L));
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String objectAsString = objectMapper.writeValueAsString(answerRequestBody);
+
+        MvcResult result = mockMvc.perform(post("/api/answers")
+                .content(objectAsString)
+                .contentType(MediaType.APPLICATION_JSON)).andReturn();
+        String actualAnswerJson = result.getResponse().getContentAsString();
+
+        assertTrue(actualAnswerJson.contains("\"correct\":true"));
+    }
+
+    @Test
+    void shouldCheckIfCorrectMultipleAnswersCase() throws Exception {
+        AnswerRequestBody answerRequestBody = new AnswerRequestBody();
+        answerRequestBody.setQuestionId(4L);
+        answerRequestBody.setAnswers(List.of(13L, 16L));
 
         ObjectMapper objectMapper = new ObjectMapper();
         String objectAsString = objectMapper.writeValueAsString(answerRequestBody);
