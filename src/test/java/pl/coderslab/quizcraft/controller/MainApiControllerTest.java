@@ -11,12 +11,13 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import pl.coderslab.quizcraft.entity.Question;
 import pl.coderslab.quizcraft.service.interfaces.AnswerServiceInterface;
 import pl.coderslab.quizcraft.service.interfaces.QuestionServiceInterface;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -46,7 +47,17 @@ class MainApiControllerTest {
     }
 
     @Test
-    void shouldGetRandomQuestionFromEndpoint() {
+    void shouldGetRandomQuestionFromEndpoint() throws Exception {
+        MvcResult result = mockMvc.perform(get("/api/questions")).andReturn();
+        String actualQuestionJson1 = result.getResponse().getContentAsString();
+        assertTrue(actualQuestionJson1.contains("\"id\":"));
+        assertTrue(actualQuestionJson1.contains("\"question\":"));
+        assertTrue(actualQuestionJson1.contains("\"answers\":[{"));
+
+        //fetching random question second time to ensure it is different from the first one
+        result = mockMvc.perform(get("/api/questions")).andReturn();
+        String actualQuestionJson2 = result.getResponse().getContentAsString();
+        assertNotEquals(actualQuestionJson1, actualQuestionJson2);
     }
 
     @Test
