@@ -112,4 +112,21 @@ class MainApiControllerTest {
 
         assertTrue(actualAnswerJson.contains("\"correct\":false"));
     }
+
+    @Test
+    void shouldCheckIfIncorrectMultipleAnswersCase() throws Exception {
+        AnswerRequestBody answerRequestBody = new AnswerRequestBody();
+        answerRequestBody.setQuestionId(4L);
+        answerRequestBody.setAnswers(List.of(13L));
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String objectAsString = objectMapper.writeValueAsString(answerRequestBody);
+
+        MvcResult result = mockMvc.perform(post("/api/answers")
+                .content(objectAsString)
+                .contentType(MediaType.APPLICATION_JSON)).andReturn();
+        String actualAnswerJson = result.getResponse().getContentAsString();
+
+        assertTrue(actualAnswerJson.contains("\"correct\":false"));
+    }
 }
