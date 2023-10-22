@@ -95,4 +95,21 @@ class MainApiControllerTest {
 
         assertTrue(actualAnswerJson.contains("\"correct\":true"));
     }
+
+    @Test
+    void shouldCheckIfIncorrectSingleAnswerCase() throws Exception {
+        AnswerRequestBody answerRequestBody = new AnswerRequestBody();
+        answerRequestBody.setQuestionId(1L);
+        answerRequestBody.setAnswers(List.of(3L));
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String objectAsString = objectMapper.writeValueAsString(answerRequestBody);
+
+        MvcResult result = mockMvc.perform(post("/api/answers")
+                .content(objectAsString)
+                .contentType(MediaType.APPLICATION_JSON)).andReturn();
+        String actualAnswerJson = result.getResponse().getContentAsString();
+
+        assertTrue(actualAnswerJson.contains("\"correct\":false"));
+    }
 }
