@@ -44,4 +44,14 @@ class AnswerServiceTest {
         assertEquals("php artisan stop", answers.get(2).getAnswer());
         assertEquals("php artisan pause", answers.get(3).getAnswer());
     }
+
+    @Test
+    void shouldFindAllCorrectByQuestion() {
+        Question question = questionService.findById(4).orElse(new Question());
+        List<Answer> answers = answerRepository.findAllByQuestionAndCorrectTrue(question);
+
+        assertEquals(2, answers.size());
+        assertEquals("scp", answers.get(0).getAnswer());
+        assertEquals("rsync", answers.get(1).getAnswer());
+    }
 }
