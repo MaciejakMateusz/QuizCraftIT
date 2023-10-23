@@ -18,11 +18,6 @@ public class AnswerService implements AnswerServiceInterface {
     }
 
     @Override
-    public void save(Answer answer) {
-        answerRepository.save(answer);
-    }
-
-    @Override
     public List<Answer> findAllByQuestionAndCorrectTrue(Question question) {
         return answerRepository.findAllByQuestionAndCorrectTrue(question);
     }
@@ -32,4 +27,8 @@ public class AnswerService implements AnswerServiceInterface {
         return answerRepository.findAllByQuestion(question);
     }
 
+    @Override
+    public void save(Answer answer) {
+        answerRepository.save(answer);
+    }
 }
