@@ -13,11 +13,12 @@ import org.springframework.test.context.TestPropertySource;
 import pl.coderslab.quizcraft.entity.Answer;
 import pl.coderslab.quizcraft.entity.Question;
 import pl.coderslab.quizcraft.repository.QuestionRepository;
-import pl.coderslab.quizcraft.service.interfaces.AnswerServiceInterface;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
@@ -28,9 +29,6 @@ class QuestionServiceTest {
 
     @Autowired
     private QuestionRepository questionRepository;
-
-    @Autowired
-    private AnswerServiceInterface answerService;
 
     @Test
     void shouldSaveQuestionAndAnswers() {
@@ -62,5 +60,9 @@ class QuestionServiceTest {
 
     @Test
     void findRandom() {
+        Question question1 = questionRepository.findRandomQuestion().orElse(new Question());
+        Question question2 = questionRepository.findRandomQuestion().orElse(new Question());
+
+        assertNotEquals(question1.getQuestion(), question2.getQuestion());
     }
 }
