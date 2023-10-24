@@ -55,7 +55,9 @@ class QuestionServiceTest {
     }
 
     @Test
-    void findById() {
+    void shouldFindById() {
+        Question question = questionRepository.findById(3L).orElse(new Question());
+        assertEquals("How to list all nodes in your Docker swarm?", question.getQuestion());
     }
 
     @Test
